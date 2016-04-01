@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AC76B656-9576-4A4F-8088-D1EC56C89E16}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CsMathematics</RootNamespace>
+    <AssemblyName>CsMathematics</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbstractAlgebra\IBinaryOperation.cs" />
+    <Compile Include="AbstractAlgebra\IGroup.cs" />
+    <Compile Include="AbstractAlgebra\IGroupMember.cs" />
+    <Compile Include="AbstractAlgebra\NumberFields\IField.cs" />
+    <Compile Include="AbstractAlgebra\NumberFields\IFieldMember.cs" />
+    <Compile Include="AbstractAlgebra\NumberFields\IFieldOperation.cs" />
+    <Compile Include="AbstractAlgebra\NumberFields\RationalAddition.cs" />
+    <Compile Include="AbstractAlgebra\NumberFields\RationalElement.cs" />
+    <Compile Include="AbstractAlgebra\NumberFields\RationalField.cs" />
+    <Compile Include="AbstractAlgebra\NumberFields\RationalMultiplication.cs" />
+    <Compile Include="AbstractAlgebra\NumberFields\RealField.cs" />
+    <Compile Include="ComplexAnalysis\IHolomorphicFunction.cs" />
+    <Compile Include="DifferentialEquations\NumericalIntegrator.cs" />
+    <Compile Include="ComplexAnalysis\HolomorphicFunction.cs" />
+    <Compile Include="Functions\IFunctional.cs" />
+    <Compile Include="Functions\ISingleInputScalarFunction.cs" />
+    <Compile Include="LinearAlgebra\ComplexMatrix.cs" />
+    <Compile Include="LinearAlgebra\ComplexVector.cs" />
+    <Compile Include="LinearAlgebra\IComplexMatrix.cs" />
+    <Compile Include="LinearAlgebra\IComplexVector.cs" />
+    <Compile Include="LinearAlgebra\IMatrix.cs" />
+    <Compile Include="LinearAlgebra\IReadOnlyComplexMatrix.cs" />
+    <Compile Include="LinearAlgebra\IReadOnlyComplexVector.cs" />
+    <Compile Include="LinearAlgebra\IReadOnlyMatrix.cs" />
+    <Compile Include="LinearAlgebra\IReadOnlyVector.cs" />
+    <Compile Include="LinearAlgebra\IVector.cs" />
+    <Compile Include="LinearAlgebra\Matrix.cs" />
+    <Compile Include="LinearAlgebra\Vector.cs" />
+    <Compile Include="Functions\IScalarFieldFunction.cs" />
+    <Compile Include="Functions\IVectorFieldFunction.cs" />
+    <Compile Include="Functions\Polynomial.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Calculus\" />
+    <Folder Include="Optimization\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
