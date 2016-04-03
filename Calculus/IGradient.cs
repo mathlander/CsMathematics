@@ -12,5 +12,6 @@ namespace CsMathematics.Calculus
     /// </summary>
     public interface IGradient : IVectorOperator, IEnumerable<IFunctional>
     {
+        IHessian Differentiate();
     }
 }

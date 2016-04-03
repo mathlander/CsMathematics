@@ -19,7 +19,7 @@ namespace CsMathematics.Calculus
 
         public IEnumerable<IFunctional> Components
         {
-            get { throw new NotImplementedException(); }
+            get { return _vectorOperator.Components; }
         }
 
         public IVector Evaluate(IVector vector)
@@ -27,9 +27,14 @@ namespace CsMathematics.Calculus
             return _vectorOperator.Evaluate(vector);
         }
 
+        public IHessian Differentiate()
+        {
+            return new Hessian(Components.Select(f => (IFunctional)f.Differentiate()).Cast<IVectorOperator>());
+        }
+
         public IEnumerator<IFunctional> GetEnumerator()
         {
-            return _vectorOperator.GetEnumerator();
+            return ((IEnumerable<IFunctional>)_vectorOperator).GetEnumerator();
         }
 
         System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
