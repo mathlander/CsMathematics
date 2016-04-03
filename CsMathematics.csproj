@@ -56,9 +56,12 @@
     <Compile Include="AbstractAlgebra\NumberFields\RationalField.cs" />
     <Compile Include="AbstractAlgebra\NumberFields\RationalMultiplication.cs" />
     <Compile Include="AbstractAlgebra\NumberFields\RealField.cs" />
+    <Compile Include="Calculus\Gradient.cs" />
+    <Compile Include="Calculus\Hessian.cs" />
     <Compile Include="Calculus\IGradient.cs" />
     <Compile Include="Calculus\IHessian.cs" />
     <Compile Include="Calculus\IJacobian.cs" />
+    <Compile Include="Calculus\Jacobian.cs" />
     <Compile Include="ComplexAnalysis\IHolomorphicFunction.cs" />
     <Compile Include="DifferentialEquations\NumericalIntegrator.cs" />
     <Compile Include="ComplexAnalysis\HolomorphicFunction.cs" />
@@ -67,6 +70,7 @@
     <Compile Include="Functions\IFunctional.cs" />
     <Compile Include="Functions\IMatrixOperator.cs" />
     <Compile Include="Functions\IVectorOperator.cs" />
+    <Compile Include="Functions\VectorOperator.cs" />
     <Compile Include="LinearAlgebra\ComplexMatrix.cs" />
     <Compile Include="LinearAlgebra\ComplexVector.cs" />
     <Compile Include="LinearAlgebra\IComplexMatrix.cs" />

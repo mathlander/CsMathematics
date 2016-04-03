@@ -10,7 +10,7 @@ namespace CsMathematics.Functions
     /// <summary>
     /// Represents a vector of operators, such as a system of differential equations or a gradient.
     /// </summary>
-    internal interface IVectorOperator
+    public interface IVectorOperator : IEnumerable<IFunctional>
     {
         /// <summary>
         /// The collection of functionals which make up the elements of the IVectorOperator.

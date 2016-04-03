@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CsMathematics.Calculus;
 using CsMathematics.LinearAlgebra;
 
 namespace CsMathematics.Functions
@@ -28,5 +29,13 @@ namespace CsMathematics.Functions
         /// <returns>A new IFunction instance which represents a partial derivative of the current instance with
         /// respect to the kth input parameter.</returns>
         IFunction DifferentiateWrtKthParameter(int k);
+
+        /// <summary>
+        /// Differentiates each component functional of the current IFunction instance with respect to all input
+        /// parameters and returns the resultant IJacobian instance.  For a function f: R^m -&gt; R^n, this results
+        /// in an nxm IJacobian (IMatrixOperator).
+        /// </summary>
+        /// <returns>The matrix of partial derivatives.</returns>
+        IJacobian Differentiate();
     }
 }

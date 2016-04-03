@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace CsMathematics.Calculus
 {
-    interface IHessian
+    /// <summary>
+    /// Represents a matrix of mixed second order partial derivatives taken from a function f: R^n -&gt; R.
+    /// </summary>
+    public interface IHessian : IJacobian
     {
     }
 }

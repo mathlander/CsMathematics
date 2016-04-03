@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CsMathematics.Calculus;
 using CsMathematics.LinearAlgebra;
 
 namespace CsMathematics.Functions
@@ -13,7 +14,7 @@ namespace CsMathematics.Functions
     /// Represents a polynomial function f(x) : R -&gt; R.  That is, f(x) takes as its input a single
     /// real (double) value and returns a real (double) value as its output.
     /// </summary>
-    internal class Polynomial : IFunctional
+    public class Polynomial : IFunctional
     {
         private readonly IDictionary<int, double> _coefficients = new SortedDictionary<int, double>();
         private readonly int _variableIndex;
@@ -66,7 +67,7 @@ namespace CsMathematics.Functions
             return Evaluate(pointVector[_variableIndex]);
         }
 
-        public IFunction DifferentiateWrtKthParameter(int k)
+        public IFunctional DifferentiateWrtKthParameter(int k)
         {
             // if differentiating with respect to a variable that doesn't appear in the polynomial
             // or if differentiating a constant, then the derivative is the constant function zero
@@ -87,9 +88,33 @@ namespace CsMathematics.Functions
             return new Polynomial(fPrimeCoeffs);
         }
 
+        IFunction IFunction.DifferentiateWrtKthParameter(int k)
+        {
+            return this.DifferentiateWrtKthParameter(k);
+        }
+
         IVector IFunction.Evaluate(IVector pointVector)
         {
             return new Vector(new[] { this.Evaluate(pointVector) });
+        }
+
+        public IGradient Differentiate()
+        {
+            return new Gradient(new[] { this.DifferentiateWrtKthParameter(_variableIndex) });
+        }
+
+        IJacobian IFunction.Differentiate()
+        {
+            return new Jacobian(new[] { new VectorOperator(new[] { this.DifferentiateWrtKthParameter(_variableIndex) }) });
+        }
+
+        public override string ToString()
+        {
+            return String.Join(" + ",
+                _coefficients.Select(
+                    kvPair => kvPair.Key == 0
+                        ? kvPair.Value.ToString()
+                        : String.Format("{0} * x_{1}^{2}", kvPair.Value, _variableIndex, kvPair.Key)));
         }
     }
 }

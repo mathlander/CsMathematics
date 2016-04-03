@@ -5,8 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
 using CsMathematics;
-using CsMathematics.LinearAlgebra;
+using CsMathematics.Calculus;
 using CsMathematics.DifferentialEquations;
+using CsMathematics.Functions;
+using CsMathematics.LinearAlgebra;
 
 namespace CsMathematics
 {
@@ -39,18 +41,25 @@ namespace CsMathematics
             Console.WriteLine("");
         }
 
+        private static void TestPolynomial()
+        {
+            var poly = new Polynomial(new[] { 100.0, 20.0, 1.0 });
+            var x = 4.0;
+
+            Console.WriteLine("The polynomial is given by: f(x) = {0}", poly);
+            Console.WriteLine("The polynomial evaluated at x={0} is f(x) = {1}", x, poly.Evaluate(x));
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("");
+        }
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, world!");
-            var z = new Complex(12, 6);
+            ////////////////////////////////////////////////////////////////////////
+            /////////////////////////    Test Polynomial    ////////////////////////
+            ////////////////////////////////////////////////////////////////////////
 
-            Console.WriteLine("The first complex number is: {0}", z);
-            Console.WriteLine("The number z^2 is: {0}", (z*z));
-            Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("");
-
-
+            TestPolynomial();
 
             ////////////////////////////////////////////////////////////////////////
             ////////////////////    Test Trapezoid Integration    //////////////////
@@ -58,16 +67,12 @@ namespace CsMathematics
 
             TestTrapezoidIntegration();
 
-
-
             ////////////////////////////////////////////////////////////////////////
             ////////////////    Test Trapezoid Vector Integration    ///////////////
             ////////////////////////////////////////////////////////////////////////
 
             TestTrapezoidVectorIntegration();
 
-            
-            
             Console.ReadKey();
         }
     }

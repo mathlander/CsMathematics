@@ -10,7 +10,7 @@ namespace CsMathematics.Functions
     /// <summary>
     /// Represents a matrix of operators, such as a Jacobian or Hessian.
     /// </summary>
-    internal interface IMatrixOperator
+    public interface IMatrixOperator
     {
         /// <summary>
         /// The IVectorOperator instances which comprise the rows of the IMatrixOperator.
