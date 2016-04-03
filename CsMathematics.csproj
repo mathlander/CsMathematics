@@ -56,11 +56,17 @@
     <Compile Include="AbstractAlgebra\NumberFields\RationalField.cs" />
     <Compile Include="AbstractAlgebra\NumberFields\RationalMultiplication.cs" />
     <Compile Include="AbstractAlgebra\NumberFields\RealField.cs" />
+    <Compile Include="Calculus\IGradient.cs" />
+    <Compile Include="Calculus\IHessian.cs" />
+    <Compile Include="Calculus\IJacobian.cs" />
     <Compile Include="ComplexAnalysis\IHolomorphicFunction.cs" />
     <Compile Include="DifferentialEquations\NumericalIntegrator.cs" />
     <Compile Include="ComplexAnalysis\HolomorphicFunction.cs" />
+    <Compile Include="Functions\CardinalityEnum.cs" />
+    <Compile Include="Functions\ConstantFunction.cs" />
     <Compile Include="Functions\IFunctional.cs" />
-    <Compile Include="Functions\ISingleInputScalarFunction.cs" />
+    <Compile Include="Functions\IMatrixOperator.cs" />
+    <Compile Include="Functions\IVectorOperator.cs" />
     <Compile Include="LinearAlgebra\ComplexMatrix.cs" />
     <Compile Include="LinearAlgebra\ComplexVector.cs" />
     <Compile Include="LinearAlgebra\IComplexMatrix.cs" />
@@ -73,8 +79,7 @@
     <Compile Include="LinearAlgebra\IVector.cs" />
     <Compile Include="LinearAlgebra\Matrix.cs" />
     <Compile Include="LinearAlgebra\Vector.cs" />
-    <Compile Include="Functions\IScalarFieldFunction.cs" />
-    <Compile Include="Functions\IVectorFieldFunction.cs" />
+    <Compile Include="Functions\IFunction.cs" />
     <Compile Include="Functions\Polynomial.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,7 +88,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Calculus\" />
     <Folder Include="Optimization\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

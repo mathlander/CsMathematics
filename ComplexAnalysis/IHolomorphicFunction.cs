@@ -14,21 +14,23 @@ namespace CsMathematics.ComplexAnalysis
     interface IHolomorphicFunction
     {
         /// <summary>
-        /// A holomorphic function f(z=x+iy) := u(x,y) + iv(x,y), where both u(x,y) and v(x,y) : R^2 => R.
+        /// If not provided explicitly via a constructor, this can be implicitly defined via a call to Evaluate(new Complex(double, double))
+        /// and returning the real part of the result.
         /// </summary>
-        Func<Complex, Complex> Function { get; }
+        IFunctional RealHarmonicConjugate { get; }
 
         /// <summary>
         /// If not provided explicitly via a constructor, this can be implicitly defined via a call to Function(new Complex(double, double))
-        /// and returning the real part of the result
+        /// and returning the imaginary part of the result.
         /// </summary>
-        IScalarFieldFunction RealHarmonicConjugate { get; }
-        //public Func<double, double, double> RealHarmonicConjugate { get; }
+        IFunctional ComplexHarmonicConjugate { get; }
+
 
         /// <summary>
-        /// If not provided explicitly via a constructor, this can be implicitly defined via a call to Function(new Complex(double, double))
-        /// and returning the imaginary part of the result
+        /// Evaluates the current IHolomorphicFunction at the point z.
         /// </summary>
-        IScalarFieldFunction ComplexHarmonicConjugate { get; }
+        /// <param name="z">The point at which the current function should be evaluated.</param>
+        /// <returns>A complex value.</returns>
+        Complex Evaluate(Complex z);
     }
 }

@@ -5,22 +5,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
 using CsMathematics.Functions;
+using CsMathematics.LinearAlgebra;
 
 namespace CsMathematics.ComplexAnalysis
 {
+    /// <summary>
+    /// Represents a holomorphic function f: C -> C.  Let u(x,y) and v(x,y) : R^2 -&gt; R, then f is given by f(z=x+iy) := u(x,y) + iv(x,y).
+    /// This interface exposes a property for the real valued harmonic conjugate functions u, v.
+    /// </summary>
     internal class HolomorphicFunction : IHolomorphicFunction
     {
-        // a holomorphic function f(z=x+iy) := u(x,y) + iv(x,y), where both u(x,y) and v(x,y) : R^2 => R
-        // this class would expose a property for the real valued harmonic conjugate functions u, v
+        public HolomorphicFunction(IFunctional realHarmonicConjugate, IFunctional complexHarmonicConjugate)
+        {
+            RealHarmonicConjugate = realHarmonicConjugate;
+            ComplexHarmonicConjugate = complexHarmonicConjugate;
+        }
 
-        public Func<Complex, Complex> Function { get; private set; }
+        public IFunctional RealHarmonicConjugate { get; private set; }
+        public IFunctional ComplexHarmonicConjugate { get; private set; }
 
-        // if not provided explicitly via a constructor, this can be implicitly defined via a call to Function(new Complex(double, double))
-        // and returning the real part of the result
-        public IScalarFieldFunction RealHarmonicConjugate { get; private set; }
+        public Complex Evaluate(Complex z)
+        {
+            var complexVector = new Vector(new[] {z.Real, z.Imaginary});
+            var real = RealHarmonicConjugate.Evaluate(complexVector);
+            var imag = ComplexHarmonicConjugate.Evaluate(complexVector);
 
-        // if not provided explicitly via a constructor, this can be implicitly defined via a call to Function(new Complex(double, double))
-        // and returning the imaginary part of the result
-        public IScalarFieldFunction ComplexHarmonicConjugate { get; private set; }
+            return new Complex(real, imag);
+        }
     }
 }

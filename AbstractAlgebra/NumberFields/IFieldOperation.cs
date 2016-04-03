@@ -8,6 +8,6 @@ namespace CsMathematics.AbstractAlgebra.NumberFields
 {
     internal interface IFieldOperation : IBinaryOperation
     {
-        new IFieldMember Operate(IFieldMember a, IFieldMember b);
+        IFieldMember Operate(IFieldMember a, IFieldMember b);
     }
 }
