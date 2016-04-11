@@ -12,6 +12,10 @@ namespace CsMathematics.Calculus
     /// </summary>
     public interface IGradient : IVectorOperator, IEnumerable<IFunctional>
     {
+        /// <summary>
+        /// Computes the matrix of second order partial derivatives.
+        /// </summary>
+        /// <returns>The matrix of second order partial derivatives.</returns>
         IHessian Differentiate();
     }
 }
