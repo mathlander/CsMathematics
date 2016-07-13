@@ -9,7 +9,7 @@ namespace CsMathematics.Calculus
     /// <summary>
     /// Specifies what type of differentiable term a CompositeTerm instance defines.
     /// </summary>
-    internal enum CompositeTermType
+    public enum CompositeTermType
     {
         General = 0,
         Sin = 1,

@@ -12,7 +12,7 @@ namespace CsMathematics.Calculus
     /// using the product rule of derivatives.  That is, f(x) = g(x)*h(x) implies
     /// f'(x) = g'(x)*h(x)*dx + g(x)*h'(x)*dx.
     /// </summary>
-    internal class ProductTerm : IDifferentiableTerm
+    public class ProductTerm : IDifferentiableTerm
     {
         private readonly IDifferentiableTerm _leftFactor;
         private readonly IDifferentiableTerm _rightFactor;

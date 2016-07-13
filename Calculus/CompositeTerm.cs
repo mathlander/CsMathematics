@@ -7,13 +7,16 @@ using CsMathematics.LinearAlgebra;
 
 namespace CsMathematics.Calculus
 {
+    /// <summary>
+    /// An exception custom to CsMathematics.LinearAlgebra.CompositeTerm.
+    /// </summary>
     public class CompositeTermExecption : Exception { public CompositeTermExecption(string message) : base(message) { } }
 
     /// <summary>
     /// A chain of terms where the output of the inner term becomes the input to the outer term.
     /// For example, let f(x) = g(h(x)).  Then, f'(x) = g'(h(x))*h'(x)*dx.
     /// </summary>
-    internal class CompositeTerm : IDifferentiableTerm
+    public class CompositeTerm : IDifferentiableTerm
     {
         private readonly double _scalar;
         private readonly double _power;
